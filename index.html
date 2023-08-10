@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guessing Game</h1>
+    <input id="rand" type="text">
+    <button onclick="checkNum()">Check number</button>
+
+    <hr>
+    <h1>Recharge card system</h1>
+    <div>
+        <label for="">Select Network</label>
+        <select name="" id="network">
+            <option value="MTN">MTN</option>
+            <option value="GLO">GLO</option>
+            <option value="AIRTEL">AIRTEL</option>
+            <option value="9MOBILE">9MOBILE</option>
+        </select>
+
+        <label for="">Select Amount</label>
+        <select name="" id="amount">
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+        </select>
+
+        <button onclick="generate()">Generate Airtime</button>
+        <hr>
+        <h1>Load Airtime</h1>
+        <label for="">For MTN</label>
+        <input id="load" type="text">
+        <button onclick="loadAirtime()">Load Airtime</button><br>
+        <button onclick="toObject()">Go to object</button>
+    </div>
+</body>
+</html>
+
+<script>
+    function toObject(){
+        window.location.href = "object.html"
+    }
+    // Math.random -Used to generate random numbers in javascript
+    // Math.floor
+    let randNum;
+    let network = document.getElementById("network")
+    let amount = document.getElementById("amount")
+    let load = document.getElementById("load")
+    function generate(){
+        randNum = Math.floor(Math.random() * 9999999)
+        if(randNum.toString().length < 7){
+            return
+        }else{
+            console.log(randNum.toString().length);
+            console.log(network.value, "Network");
+            console.log(amount.value, "Amount");
+            console.log(randNum, "airtime");
+        }
+        
+    }
+    function loadAirtime(){
+        if(load.value.startsWith("*555*") && load.value.includes(randNum) && load.value.endsWith("#")){
+            alert(`You have succeesfully recharged ${network.value} of  #${amount.value}`)
+        }else{
+            alert("Incorrect Pin")
+        }
+    }
+    // let rand = document.getElementById("rand")
+    // let num = Math.floor(Math.random() * 10)
+    // console.log(num);
+    // function checkNum(){
+    //     if(rand.value == num){
+    //         alert("Correct")
+    //     }else{
+    //         alert("Wrong")
+    //     }
+    // }
+        
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1 id="screen"></h1>
+        <button onclick="prev()">Prev</button>
+        <button onclick="nextt()">Next</button>
+    </main>
+</body>
+</html>
+
+<script>
+    //GIT
+    let screen = document.getElementById("screen")
+    let text = [{info:"Java Script is a scripting language"}, {info:"Css is used to style the html page"}]
+    let index = 0;
+
+    screen.innerHTML = text[index].info
+
+    function nextt(){
+        index++
+        screen.innerHTML = text[index].info
+    }
+
+    // let cbt = [
+    //     {
+    //         question: "What is your favourite food",
+    //         option: ["Rice", "Beans", "Yam", "Spag"]
+    //     },
+    //     {
+    //         question: "What is your favourite color",
+    //         option: ["Blue", "Red", "White", "Black"]
+    //     },
+
+    // ]
+</script>
